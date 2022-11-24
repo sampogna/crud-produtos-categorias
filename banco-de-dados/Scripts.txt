@@ -1,0 +1,16 @@
+		/* Tabelas */
+
+CREATE TABLE Categoria (
+    ID_Categoria INT PRIMARY KEY,
+    Dsc_Categoria VARCHAR(255)
+);
+
+CREATE TABLE Produto (
+	ID_Produto INT PRIMARY KEY,
+	Nome_Produto VARCHAR(100) NOT NULL,
+	Dsc_Produto VARCHAR(100) NOT NULL,
+    ID_Categoria_Produto INT NOT NULL,
+    FOREIGN KEY (ID_Categoria_Produto) REFERENCES Categoria(ID_Categoria)
+);
+
+dotnet ef dbcontext scaffold "Server=bsqlnpuzvdf6h32xq0ae-mysql.services.clever-cloud.com;User=u5lcfw91othege9j;Password=UNU11Y6WZdwgcYy7o0c5;Database=bsqlnpuzvdf6h32xq0ae" "Pomelo.EntityFrameworkCore.MySql"
